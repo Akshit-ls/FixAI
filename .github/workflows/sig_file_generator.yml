@@ -1,0 +1,40 @@
+name: Generate Signature
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'config/offline_manifest.json'
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install cryptography
+        run: pip install cryptography
+
+      - name: create .sig file
+        env:
+          SIGNING_PRIVATE_KEY: ${{ secrets.PRIVATE_SECRET_KEY_FOR_SIGNING_FILES_REQUIRED_BY_AGENT }}
+        run: |
+          python scripts/sign.py config/offline_manifest.json config/offline_manifest.json.sig
+
+      - name: Commit and push .sig file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add offline_manifest.json.sig
+          git commit -m "Auto-update signature for data.json [skip ci]" || echo "No changes to commit"
+          git push

@@ -29,7 +29,7 @@ jobs:
         env:
           SIGNING_PRIVATE_KEY: ${{ secrets.PRIVATE_SECRET_KEY_FOR_SIGNING_FILES_REQUIRED_BY_AGENT }}
         run: |
-          python scripts/sign.py config/offline_manifest.json config/offline_manifest.json.sig
+          python .github/scripts/sign.py config/offline_manifest.json config/offline_manifest.json.sig
 
       - name: Commit and push .sig file
         run: |

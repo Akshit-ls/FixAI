@@ -189,7 +189,7 @@
     },
       "license": "apache-2.0",
       "urls": ["https://huggingface.co/Fix-AI/Qwen3.5-9B-GGUF/resolve/main/Qwen3.5-9B-Q4_K_M.gguf",
-      "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/99a1b2185534379e6e8b5ec869da25d3e7b3f73c/main/Qwen3.5-9B-Q4_K_M.gguf"        
+      "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/99a1b2185534379e6e8b5ec869da25d3e7b3f73c/Qwen3.5-9B-Q4_K_M.gguf"        
       ],
       "vision_to_run_on": "cpu",
       "vision_model": "mmproj-F16.gguf",
@@ -306,7 +306,7 @@
     },
       "license": "apache-2.0",
       "urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/main/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf",
-      "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/313447f257f7ebde0b968e4778feef774546ed81/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf"
+      "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/21e67c72f41299a8285cb047a58790bac8c38717/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf"
       ],
       "vision_to_run_on": "gpu",
       "vision_model": "mmproj-F16.gguf",

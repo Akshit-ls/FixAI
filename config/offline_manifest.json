@@ -1,3 +1,436 @@
 {
-  
+  "version": 1,
+  "llama.cpp": {
+    "version":"b11946",
+    "assets": {
+    "cuda13": {
+        "main": {
+            "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/llama-b11946-bin-win-cuda-13.4-x64.zip",
+            "sha256": "5ac28ef7b3bb539698d3044243ff13d817ada9081cc41a6404267993dd7ee23c",
+            "size": 164880776
+        },
+        "cudart": {
+            "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/cudart-llama-bin-win-cuda-13.4-x64.zip",
+            "sha256": "738f8c251ac22b70c3ae6f83a10cf222725df0395246a2cf58f32bdb85fbe668",
+            "size": 423535356
+        }
+    },
+    "cuda12": {
+        "main": {
+            "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/llama-b11946-bin-win-cuda-12.4-x64.zip",
+            "sha256": "97f3b1a9ae814569d92487561c7e1a4b79e0cdedadab36adddc38efd68eec296",
+            "size": 279566381
+        },
+        "cudart": {
+            "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/cudart-llama-bin-win-cuda-12.4-x64.zip",
+            "sha256": "8c79a9b226de4b3cacfd1f83d24f962d0773be79f1e7b75c6af4ded7e32ae1d6",
+            "size": 391443627
+        }
+    },
+    "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/llama-b11946-bin-win-vulkan-x64.zip",
+        "sha256": "b65b2837c584ca2d37033b8a947513fc02649199077a17455f416921aa6eb8f5",
+        "size": 37303240
+    },
+    "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11946/llama-b11946-bin-win-cpu-x64.zip",
+        "sha256": "8a702bb07c873b133c56eb3acd92a48d7c5c9ad339c6435eddc5185e46e1a043",
+        "size": 24376086
+    }
+}
+  },
+  "tiers": {
+    "vram_4gb": {
+      "version": "1.1",
+      "model": "Qwen3.5-4B-GGUF-GSQ",
+      "size_bytes": 1940825248,
+      "sha256": "b7d9ec51fb4d726d31e6bfd47062fb74574a974b93951da6a435b5e35185cb5a",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "16384",
+        "-fitc", "16384",
+        "-fit", "on",
+        "-fitt", "384",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "--no-mmproj-offload",
+        "-b", "1024",
+        "-ub", "256",
+        "--jinja",
+        "--no-webui"],
+    "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1.25,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0.0,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.5-4B-GGUF-GSQ/resolve/main/Qwen3.5-4B-Q2_K_XL.gguf",
+      "https://huggingface.co/ISTA-DASLab/Qwen3.5-4B-GGUF-GSQ/resolve/97484327ca6cfb5304f03f579c823b496ed719fc/Qwen3.5-4B-Q2_K_XL.gguf"
+      ],
+      "vision_to_run_on": "cpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 672423616,
+      "vision_model_sha256": "cd88edcf8d031894960bb0c9c5b9b7e1fea6ebee02b9f7ce925a00d12891f864",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.5-4B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/b2413f923af33948a30ef771cdac7bc0f253bc97/mmproj-F16.gguf"
+      ]      
+    },
+    "vram_6gb": {
+      "version": "1.1",
+      "model": "Qwen3.5-4B-GGUF",
+      "size_bytes": 3525956768,
+      "sha256": "fdedd781c9ce676ab66b018ca247ff78e8a33c98098a822c1e2d5075e7718f66",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "16384",
+        "-fitc", "16384",
+        "-fit", "on",
+        "-fitt", "384",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "--no-mmproj-offload",
+        "-b", "1024",
+        "-ub", "256",
+        "--jinja",
+        "--no-webui"],
+    "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0.0,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q6_K.gguf",
+      "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/7fc32d09336e9c2ec548f5615f2948de587e6632/Qwen3.5-4B-Q6_K.gguf"
+      ],
+      "vision_to_run_on": "cpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 672423616,
+      "vision_model_sha256": "cd88edcf8d031894960bb0c9c5b9b7e1fea6ebee02b9f7ce925a00d12891f864",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.5-4B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/b2413f923af33948a30ef771cdac7bc0f253bc97/mmproj-F16.gguf"
+      ]      
+    },
+    "vram_8gb": {
+      "version": "1.1",
+      "model": "Qwen3.5-9B-GGUF",
+      "size_bytes": 5680522464,
+      "sha256": "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "16384",
+        "-fitc", "16384",
+        "-fit", "on",
+        "-fitt", "384",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "--no-mmproj-offload",
+        "-b", "1024",
+        "-ub", "256",
+        "--jinja",
+        "--no-webui"],
+    "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0.0,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.5-9B-GGUF/resolve/main/Qwen3.5-9B-Q4_K_M.gguf",
+      "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/99a1b2185534379e6e8b5ec869da25d3e7b3f73c/main/Qwen3.5-9B-Q4_K_M.gguf"        
+      ],
+      "vision_to_run_on": "cpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 918166080,
+      "vision_model_sha256": "f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.5-9B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/f0a5ec311e0b365f00a15084f64a43bbd21af890/mmproj-F16.gguf"
+      ]      
+    },
+    "vram_12gb": {
+      "version": "1.1",
+      "model": "Qwen3.8-27B-GSQ-RCO-GGUF",
+      "size_bytes": 10094357632,
+      "sha256": "fdfcb6a29b11188956dfbfd904223588a6c1b77eb250c3e8a36e1bd269df91f7",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "16384",
+        "-fitc", "16384",
+        "-fit", "on",
+        "-fitt", "384",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "--no-mmproj-offload",
+        "-b", "1024",
+        "-ub", "256",
+        "--jinja",
+        "--no-webui"],
+    "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "low",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "low"
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.00,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "low",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "low"
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/main/Qwen3.8-27B-GSQ-RCO-IQ3_XXS.gguf",
+      "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/682fecc049bcee202c428c8891616787db222a8c/Qwen3.8-27B-GSQ-RCO-IQ3_XXS.gguf"        
+      ],
+      "vision_to_run_on": "cpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 927607488,
+      "vision_model_sha256": "cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/1cff334a4a228324d4ee1f76d55d372588f0d556/mmproj-F16.gguf"
+      ]      
+    },
+    "vram_16gb": {
+      "version": "1.1",
+      "model": "Qwen3.8-27B-GSQ-RCO-GGUF",
+      "size_bytes": 11771546784,
+      "sha256": "64b53b64c7aa39f20a7e54bd80582fe595b1d745624ee8a72e92508c0326d810",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "32768",
+    "-fitc", "16384",
+    "-fit", "on",
+    "-fitt", "384",
+    "-np", "1",
+    "-fa", "on",
+    "-ctk", "q8_0",
+    "-ctv", "q8_0",
+    "-b", "1024",
+    "-ub", "256",
+    "--jinja",
+    "--no-webui"],
+    "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "medium",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "medium"
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.00,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "medium",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "medium"
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/main/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf",
+      "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF/resolve/313447f257f7ebde0b968e4778feef774546ed81/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf"
+      ],
+      "vision_to_run_on": "gpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 927607488,
+      "vision_model_sha256": "cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/1cff334a4a228324d4ee1f76d55d372588f0d556/mmproj-F16.gguf"
+      ]       
+    },
+    "vram_24gb": {
+      "version": "1.1",
+      "model": "Qwen3.8-27B-GGUF",
+      "size_bytes": 17559178144,
+      "sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "49152",
+        "-fitc", "24576",
+        "-fit", "on",
+        "-fitt", "768",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "-b", "2048",
+        "-ub", "512",
+        "--jinja",
+        "--no-webui"],
+          "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "xhigh",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "xhigh"
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.00,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "xhigh",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "xhigh"
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/313447f257f7ebde0b968e4778feef774546ed81/Qwen3.8-27B-UD-Q4_K_XL.gguf"        
+      ],
+      "vision_to_run_on": "gpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 927607488,
+      "vision_model_sha256": "cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/1cff334a4a228324d4ee1f76d55d372588f0d556/mmproj-F16.gguf"
+      ]     
+    },
+    "vram_32gb": {
+      "version": "1.1",
+      "model": "Qwen3.8-27B-GGUF",
+      "size_bytes": 25299061664,
+      "sha256": "701d8fa9ed214ab21bfc130cd2a7df19ca89bbef7713e2dfb19f3c63696aa917",
+      "min_llama_cpp": "b11946",
+      "server_args": ["-c", "49152",
+        "-fitc", "24576",
+        "-fit", "on",
+        "-fitt", "768",
+        "-np", "1",
+        "-fa", "on",
+        "-ctk", "q8_0",
+        "-ctv", "q8_0",
+        "-b", "2048",
+        "-ub", "1024",
+        "--jinja",
+        "--no-webui"],
+          "request_defaults": {
+    "normal": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "xhigh",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "xhigh"
+        }
+      },
+      "code_generation": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.00,
+      "presence_penalty": 0.0,
+      "reasoning_effort": "xhigh",
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": false,
+        "reasoning_effort": "xhigh"
+        }
+      }
+    },
+      "license": "apache-2.0",
+      "urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/Qwen3.8-27B-UD-Q6_K_XL.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/313447f257f7ebde0b968e4778feef774546ed81/Qwen3.8-27B-UD-Q6_K_XL.gguf"
+      ],
+      "vision_to_run_on": "gpu",
+      "vision_model": "mmproj-F16.gguf",
+      "vision_model_size_bytes": 927607488,
+      "vision_model_sha256": "cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e",
+      "vision_urls": ["https://huggingface.co/Fix-AI/Qwen3.8-27B-GGUF/resolve/main/mmproj-F16.gguf",
+      "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/1cff334a4a228324d4ee1f76d55d372588f0d556/mmproj-F16.gguf"
+      ]     
+    }
+  }
 }

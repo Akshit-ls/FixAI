@@ -1,4 +1,4 @@
-name: Generate Signature
+name: Verify and Sign Manifest
 
 on:
   push:
@@ -6,26 +6,43 @@ on:
       - main
     paths:
       - 'config/offline_manifest.json'
+  workflow_dispatch:
 
 jobs:
-  sign:
+  verify-and-sign:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - name: Checkout code
+      - name: Checkout code with history
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install cryptography
-        run: pip install cryptography
+      - name: Install dependencies
+        run: pip install cryptography packaging jsonschema
 
-      - name: create .sig file
+      - name: Extract previous manifest from HEAD~1
+        run: |
+          if git cat-file -e HEAD~1:config/offline_manifest.json 2>/dev/null; then
+            git show HEAD~1:config/offline_manifest.json > /tmp/base_manifest.json
+            echo "BASE_ARG=--base /tmp/base_manifest.json" >> $GITHUB_ENV
+          else
+            echo "BASE_ARG=" >> $GITHUB_ENV
+          fi
+
+      - name: Verify links, sizes, hashes, and version bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/verify_manifest.py config/offline_manifest.json $BASE_ARG
+
+      - name: Create .sig file (only runs if verification passed)
         env:
           SIGNING_PRIVATE_KEY: ${{ secrets.PRIVATE_SECRET_KEY_FOR_SIGNING_FILES_REQUIRED_BY_AGENT }}
         run: |
@@ -36,5 +53,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/offline_manifest.json.sig
-          git commit -m "Auto-update signature for data.json [skip ci]" || echo "No changes to commit"
+          git commit -m "Auto-update signature for offline_manifest.json [skip ci]" || echo "No changes to commit"
           git push

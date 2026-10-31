@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "llama.cpp": {
     "version":"b11946",
     "assets": {
@@ -147,7 +147,7 @@
       ]      
     },
     "vram_8gb": {
-      "version": "1.1",
+      "version": "1.2",
       "model": "Qwen3.5-9B-GGUF",
       "size_bytes": 5680522464,
       "sha256": "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8",
@@ -259,7 +259,7 @@
       ]      
     },
     "vram_16gb": {
-      "version": "1.1",
+      "version": "1.2",
       "model": "Qwen3.8-27B-GSQ-RCO-GGUF",
       "size_bytes": 11771546784,
       "sha256": "64b53b64c7aa39f20a7e54bd80582fe595b1d745624ee8a72e92508c0326d810",
